@@ -45,45 +45,7 @@
             </svg>
             Filter
           </div>
-          <div v-if="showFilterDropdown" class="filter-dropdown">
-            <!-- Sort By Section -->
-            <div class="filter-section">
-              <span class="filter-title">SORT BY:</span>
-              <div
-                v-for="(option, index) in sortOptions"
-                :key="index"
-                class="filter-option"
-              >
-                <input
-                  type="radio"
-                  :id="'sort-' + option.value"
-                  :value="option.value"
-                  v-model="selectedSort"
-                  @change="applyFilters"
-                />
-                <label :for="'sort-' + option.value">{{ option.label }}</label>
-              </div>
-            </div>
 
-            <!-- Users Section -->
-            <div class="filter-section">
-              <span class="filter-title">USERS:</span>
-              <div
-                v-for="(option, index) in userOptions"
-                :key="index"
-                class="filter-option"
-              >
-                <input
-                  type="radio"
-                  :id="'user-' + option.value"
-                  :value="option.value"
-                  v-model="selectedUser"
-                  @change="applyFilters"
-                />
-                <label :for="'user-' + option.value">{{ option.label }}</label>
-              </div>
-            </div>
-          </div>
           <div class="search-container">
             <div class="search-bar">
               <svg
@@ -175,12 +137,17 @@
                   <div class="last-login">
                     Last login:
                     {{
-                      new Date(user.lastLogged).toLocaleDateString("en-US", {
-                        weekday: "short",
-                        year: "numeric",
-                        month: "short",
-                        day: "numeric",
-                      })
+                      user.lastLogged
+                        ? new Date(user.lastLogged).toLocaleDateString(
+                            "en-US",
+                            {
+                              weekday: "short",
+                              year: "numeric",
+                              month: "short",
+                              day: "numeric",
+                            }
+                          )
+                        : "No login data available"
                     }}
                   </div>
                 </div>
@@ -205,7 +172,9 @@
                             day: "numeric",
                           }
                         )}`
-                      : user.paymentStatus === "Due" && user.dueOn
+                      : (user.paymentStatus === "Unpaid" ||
+                          user.paymentStatus === "Overdue") &&
+                        user.dueOn
                       ? `Due on ${new Date(user.dueOn).toLocaleDateString(
                           "en-US",
                           {
@@ -253,12 +222,14 @@
             <tr v-if="expandedRows.includes(user.id)">
               <td class="details-column">
                 {{
-                  new Date(user.lastLogged).toLocaleDateString("en-US", {
-                    weekday: "short",
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  })
+                  user.lastLogged
+                    ? new Date(user.lastLogged).toLocaleDateString("en-US", {
+                        weekday: "short",
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })
+                    : "No login data available"
                 }}
               </td>
               <td class="details-column">{{ user.activityDetails }}</td>
@@ -322,11 +293,7 @@ import {
   computed,
 } from "vue";
 import { useUserStore } from "@/store/userStore";
-import {
-  FilterIcon,
-  ArrowLeftIcon,
-  ArrowRightIcon,
-} from "@heroicons/vue/20/solid";
+
 import "./styles.css";
 
 export default defineComponent({
@@ -384,10 +351,12 @@ export default defineComponent({
 
     const toggleSelectAll = (event: Event) => {
       const checkbox = event.target as HTMLInputElement;
+
+      const start = startIndex.value;
+      const end = endIndex.value;
+
       selectedRows.value = checkbox.checked
-        ? filteredAndSortedUsers.value
-            .slice(startIndex, endIndex)
-            .map((user) => user.id)
+        ? filteredAndSortedUsers.value.slice(start, end).map((user) => user.id)
         : [];
     };
 
