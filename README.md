@@ -23,7 +23,7 @@ This project implements an admin data table to manage users of a paid service, s
 
 ### 4. **Row Expansion**
 
-- Each row in the table can be expanded to show additional details about the user b clikcing 'view more'
+- Each row in the table can be expanded to show additional details about the user by clicking 'view more'
 
 ## Setup Instructions
 
