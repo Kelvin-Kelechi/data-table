@@ -1,0 +1,485 @@
+.admin-table {
+  font-family: "Arial", sans-serif;
+  padding: 20px 80px;
+  border-radius: 10px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-bottom: 20px; */
+  color:#6E6893;
+  text-transform: uppercase;
+   
+}
+.table-header h1 {
+ font-size: 22px;
+   
+}
+
+.payable-text {
+  font-size: 18px;
+  color: #333;
+}
+.tabs-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  gap: 20px;
+  position: relative;
+}
+.details-column {
+  /* padding: 10px; */
+  border: 1px solid #ddd;
+}
+
+.details-column h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.details-column p {
+  font-size: 14px;
+  color: #555;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  font-family: inter;
+}
+
+.tabs button:hover {
+  color: #333;
+}
+
+.tabs button.active {
+  color: #000;
+  border-bottom: 2px solid #25213b;
+  font-weight: bold;
+}
+
+.header-actions {
+  font-size: 14px;
+  color: #555;
+}
+
+.payable-text {
+  font-weight: 500;
+  font-family: inter;
+}
+.pay-text {
+  font-weight: 500;
+  font-size: 15px;
+  color: #25213b;
+}
+.payable-amount {
+  color: #25213b;
+  font-weight: 400;
+}
+.payable-color {
+  color: #4c8bf5;
+  font-weight: bold;
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-table th,
+.user-table td {
+  text-align: left;
+  padding: 15px 15px;
+  color: #6e6893;
+}
+
+.user-table th {
+  background-color: #f4f2ff;
+  color: #6e6893;
+  font-family: inter;
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #f9fbfd;
+}
+
+.details-btn {
+  background: none;
+  color: #6e6893;
+  border: none;
+  cursor: pointer;
+}
+.search-actions-container {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr auto;
+  gap: 20px;
+  align-items: center;
+  /* margin-bottom: 20px; */
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.filter-search-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  grid-column: 1 / 2;
+}
+
+.filter-btn {
+  padding: 5px 20px;
+  /* background-color: #eaeef3; */
+  color: #555;
+  border: 1.5px solid #ddd;
+
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4;
+  transition: background-color 0.3s;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  flex: 1;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.pay-dues-btn {
+  padding: 10px 20px;
+  background-color: #6d5bd0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  grid-column: 3;
+}
+.user-table tbody tr {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+}
+.border {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+}
+.user-table tbody tr:nth-child(even) {
+  background-color: #f9fbfd;
+}
+
+.user-table td {
+  padding: 10px 15px;
+}
+.pagination-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px;
+  color:#6E6893;
+}
+.pagination-controls span {
+font-size: 15px;
+}
+
+.pagination-btn {
+  padding: 10px 20px;
+  color: #6e6893;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.page-info {
+  color: #555;
+  font-size: 14px;
+}
+.pagination-icon {
+  width: 20px;
+  height: 20px;
+  color: #000;
+}
+.icon-style {
+  width: 24px;
+  height: 24px;
+  color: #333;
+}
+
+.pagination-icon {
+  width: 20px;
+  height: 20px;
+  color: #000;
+}
+
+.payment-status-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 0.2rem 0.3rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: white;
+}
+
+.payment-status.paid {
+  background-color: #cdffcd;
+  color: #007f00;
+}
+
+.payment-status.unpaid {
+  background-color: #ffe0e0;
+  color: #d30000;
+}
+
+.payment-status.overdue {
+  background-color: #ffeccc;
+  color: #ce8500;
+}
+.payment-active.active {
+  background-color: #e6e6f2;
+  color: #4a4aff;
+}
+.payment-active.inactive {
+  background-color: #f2f0f9;
+  color: #6e6893;
+}
+.payment-active.active .payment-status-dot {
+  background-color: #4a4aff;
+}
+.payment-active.inactive .payment-status-dot {
+  background-color: #6e6893;
+}
+.payment-status-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: white;
+  flex-shrink: 0;
+}
+.payment-status.paid .payment-status-dot {
+  background-color: #007f00;
+}
+
+.payment-status.unpaid .payment-status-dot {
+  background-color: #d30000;
+}
+
+.payment-status.overdue .payment-status-dot {
+  background-color: #ce8500;
+}
+.status-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.status-dot {
+  margin-right: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.active {
+  background-color: green;
+}
+
+.inactive {
+  background-color: gray;
+}
+
+.pending {
+  background-color: orange;
+}
+
+.last-login {
+  font-size: 12px;
+  margin-top: 4px;
+}
+.payment-date {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.search-icon-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #6a5eab;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.search-input::placeholder {
+  color: #a49acb;
+  font-weight: 400;
+}
+.filter-funnel-icon {
+  width: 24px;
+  height: 24px;
+  color: #6d5bd0;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f4f2ff;
+  padding: 0px 16px;
+  /* border-radius: 24px; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  color: #8a82c4;
+  margin-right: 8px;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: #4a4a4a;
+  background-color: transparent;
+}
+.amount-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.amount-value {
+  font-size: 16px;
+  color: #25213b;
+}
+
+.amount-currency {
+  font-size: 12px;
+  color: #6e6893;
+  margin-top: 2px;
+}
+th svg {
+  width: 25px;
+  height: 25px;
+  color: #333;
+}
+tr svg {
+  width: 25px;
+  height: 25px;
+  color: #333;
+}
+.filter-dropdown {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 200px;
+}
+.filter-section {
+  margin-bottom: 10px;
+}
+
+.filter-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.filter-option label {
+  margin-left: 5px;
+  font-size: 14px;
+}
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dropdown-icon {
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  padding: 8px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dropdown-menu li:hover {
+  background-color: #f5f5f5;
+}
+
+.text-red {
+  color: red;
+}
+
+.text-green {
+  color: green;
+}

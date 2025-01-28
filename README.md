@@ -1,11 +1,29 @@
-# Data Table Component
+# Admin Data Table - User Payment Management
 
-A customizable data table built with Vue 3 and Vite. This component supports expandable rows, dropdown actions, and full-width details.
+This project implements an admin data table to manage users of a paid service, showing their payment status and allowing the admin to interact with the data. The table is designed to display users' details and includes features like sorting, filtering, and row expansion. The framework used for this project is **Vue.js** with **Vuex** or **Pinia** for state management.
 
 ## Features
 
-- Displays data in a tabular format.
-- Expandable rows to show additional details.
+### 1. **Tabs for Payment Status**
+
+- Tabs available: **All**, **Paid**, **Unpaid**, **Overdue**.
+- **All** tab shows all users regardless of payment status.
+- **Paid** tab shows users with "Paid" status.
+- **Unpaid** tab shows users with "Unpaid" status.
+- **Overdue** tab shows users with "Overdue" status.
+
+### 2. **Total Payable Amount**
+
+- At the top of the table, the total payable amount is calculated as the sum of the amounts of users with "Unpaid" or "Overdue" status.
+
+### 3. **Search Functionality**
+
+- A search bar above the table allows admins to filter users by name, email, or other available fields.
+- The search is done **client-side only**.
+
+### 4. **Row Expansion**
+
+- Each row in the table can be expanded to show additional details about the user.
 
 ## Setup Instructions
 
@@ -20,63 +38,6 @@ A customizable data table built with Vue 3 and Vite. This component supports exp
 
    ```sh
    npm run dev
+   ``
+   git clone https://github.com/Kelvin-Kelechi/data-table
    ```
-
-4. Build for production:
-
-   ```sh
-   npm run build
-   ```
-
-5. Preview the production build:
-
-   ```sh
-   npm run preview
-   ```
-
-## Usage
-
-Include the `data-table` component in your Vue app. Ensure that the `users` data is provided as a prop or fetched dynamically from an API.
-
-### Props
-
-| Prop Name      | Type  | Description                          |
-| -------------- | ----- | ------------------------------------ |
-| `users`        | Array | Array of user objects for the table. |
-| `expandedRows` | Array | Tracks the rows that are expanded.   |
-
-### Sample User Object
-
-Each user object should have the following structure:
-
-```javascript
-{
-  id: 1,
-  date: "2025-01-01",
-  activityDetails: "Logged in",
-  details: "Active user",
-}
-```
-
-### Example Template
-
-```vue
-<DataTable :users="users" :expandedRows="expandedRows" />
-```
-
-## Dropdown Actions
-
-- **Edit:** Opens the edit modal for the user.
-- **View Profile:** Redirects to the user's profile page.
-- **Activate User:** Activates a user and applies a green highlight.
-- **Delete:** Deletes a user with a red highlight for this option.
-
-## Styling
-
-All styles are defined in normal CSS. Update the `styles.css` file to customize the appearance.
-
-## Dependencies
-
-- Vue 3
-- Vite
-# data-table
